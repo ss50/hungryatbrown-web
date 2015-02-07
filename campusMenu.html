@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Menu | Hungry at Brown</title>
+		<link rel="stylesheet" type="text/css" href="css/campusMenu.css">
+		<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	</head>
+	<body>
+		<ul id="dining_halls">
+			<li id="ratty" class="active">RATTY</li>
+			<li id="vdub">VDUB</li>
+		</ul>
+		<hr id="division">
+		<ul id="meals">
+			<li id="breakfast" class="active">BREAKFAST</li>
+			<li id="lunch">LUNCH</li>
+			<li id="dinner">DINNER</li>
+		</ul>
+		<script>
+			$('#dining_halls li').click(function(e){
+				e.preventDefault()
+				$that = $(this); // item selected
+				$('#dining_halls').find('li').removeClass('active')
+				$that.addClass('active')
+			});
+
+			$('#meals li').click(function(e){
+				e.preventDefault()
+				$that = $(this); // item selected
+				$('#meals').find('li').removeClass('active')
+				$that.addClass('active')
+			});
+		</script>
+	</body>
+</html>
