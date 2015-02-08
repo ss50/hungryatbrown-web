@@ -3,6 +3,13 @@ body {
 	font-weight:400;
 }
 
+#eatery-hours {
+	margin: 0px 0px 30px;
+	text-align: center;
+	font-size: 30px;
+	color: #df5a49;
+}
+
 #divider {
 	width: 90%;
 	border-top: 1px solid #df5a49;
@@ -12,7 +19,7 @@ body {
 #division {
 	border-top: 2px solid #45b29d;
 	width: 100%;
-	margin: 0px auto 80px;
+	margin: 0px auto 50px;
 }
 
 #subdivider {
@@ -23,7 +30,7 @@ body {
 	margin-bottom: 0px;
 }
 
-.heart-image {
+#heart-image {
 	margin: 30px 15px;
 	width: 20px;
 	height: 20px;
@@ -104,7 +111,7 @@ body {
 }
 
 .row-liked{
-	background-image: url("images/filled-heart.png");
+	content: url("images/filled-heart.png");
 }
 
 .inactive{
