@@ -16,7 +16,6 @@
 			<nav>
 				<a href="freeFood.html">Free Food</a>
 				<a href="campusMenu.html">Campus Menu</a>
-				<a href="nearbyFriends.html">Nearby Friends</a>
 				<a href="index.html">Log Out</a>
 			</nav>
 		</section>
@@ -42,44 +41,6 @@
 				<li id="lunch">LUNCH</li>
 				<li id="dinner">DINNER</li>
 			</ul>
-			<script>
-			var madShitYo = function(rattyfinalres) {
-				$('#dining_halls li').click(function(e){
-					e.preventDefault()
-					$that = $(this); // item selected
-					$('#dining_halls').find('li').removeClass('active')
-					$that.addClass('active')
-				});
-
-				$('#meals li').click(function(e){
-					e.preventDefault()
-					$that = $(this); // item selected
-					$('#meals').find('li').removeClass('meals-active')
-					$that.addClass('meals-active')
-				});
-
-				$('#row img').click(function(e){
-					e.preventDefault()
-					$that = $(this); // item selected
-					$that.addClass('row-liked')
-				});
-				
-				for (var i=0; i<rattyfinalres.length; i++) {
-					
-					// if (results.length<5){
-					// 	//breakfast
-					// }
-					console.log("row lifestyle:", row);
-
-					for (var j=0; j < row.length; j++) {
-													document.getElementById("food-name").innerHTML = ""+ rattyfinalres[i][j];
-
-						
-					}
-				}
-			}
-
-			</script>
 
 			<hr id="division">
 			<h4 id="eatery-hours">OPEN</h4>
@@ -88,34 +49,30 @@
 				<h4 class="menu-title">APPETIZERS</h4>
 				<hr id="divider">
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">Scrambed Eggs</h3>
 						<hr id="subdivider">
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">French Toast</h3>
 						<hr id="subdivider">
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">Corn Beef Hash</h3>
 						<hr id="subdivider">
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">Grilled Breakfast Sausage</h3>
 						<hr id="subdivider">
 					</div>
 				</div>
@@ -125,34 +82,30 @@
 				<h4 class="menu-title">MAIN COURSE</h4>
 				<hr id="divider">
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">Honey Mustard Chicken</h3>
 						<hr id="subdivider">
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">Vegan Brown Rice Pilaf</h3>
 						<hr id="subdivider">
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">White & Whole Wheat Pasta</h3>
 						<hr id="subdivider">
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" id="heart-image"></img>
+					<img src="css/heart.png" id="heart-image"></img>
 					<div class="food-content">
-						<h3 id="food-name">Tuscan Salad</h3>
-						<h5 id="food-description">Tuna, beans, and sprout</h5>
+						<h3 id="food-name">Choice of Assorted Pizza</h3>
 						<hr id="subdivider">
 					</div>
 				</div>

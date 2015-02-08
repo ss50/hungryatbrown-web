@@ -12,9 +12,46 @@ var closingsoon;
 var closed;
 var rattyfinalres=[];
 var vdubfinalres=[];
+
+
+var madShitYo = function(rattyfinalres) {
+    $('#dining_halls li').click(function(e){
+        e.preventDefault()
+        $that = $(this); // item selected
+        $('#dining_halls').find('li').removeClass('active')
+        $that.addClass('active')
+    });
+
+    $('#meals li').click(function(e){
+        e.preventDefault()
+        $that = $(this); // item selected
+        $('#meals').find('li').removeClass('meals-active')
+        $that.addClass('meals-active')
+    });
+
+    $('#row img').click(function(e){
+        e.preventDefault()
+        $that = $(this); // item selected
+        if($that.className != 'row-liked') {
+            $that.addClass('row-liked')
+        } else {
+            $that.removeClass('row-liked')
+        }    
+    });
+
+    for (var i=0; i<rattyfinalres.length; i++) {
+        var row = rattyfinalres[i];
+        for (var j=0; j<row.length; j++) {
+            console.log("ITEMS:"+ rattyfinalres[i][j])
+            $('#food-name').innerHTML=rattyfinalres[i][j];
+            $('#food-description').innerHTML=rattyfinalres[i][j];
+        }
+    }
+}
+
 //test methods
 $(window).load(function() {
-console.log("here");
+console.log("loaded");
          //$("#hello").click(function() {
 
          //getVdub();
@@ -170,12 +207,13 @@ function getRatty(){
                     rresults.push(grill);
                     rresults.push(rootsshoots);
                 }
-                //console.log(rresults);
-                rattyfinalres = rresults;
+                console.log("RATTY: " + rresults);
+                
 
 
 
                 madShitYo(data.menus)
+                rattyfinalres = rresults;
 
                 return rresults;
             }
