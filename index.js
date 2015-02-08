@@ -48,6 +48,7 @@ function getRatty(){
     else{
         closingsoon = "Not Closing Soon";
     }
+    var results = [];
      $.ajax( {
             url: baseurl,
             dataType: "jsonp",
@@ -63,6 +64,9 @@ function getRatty(){
                 console.log(bistro);
                 console.log(chefcorner);
                 console.log(dailysbar);
+                results.push(bistro);
+                results.push(chefcorner);
+                results.push(dailysbar);
                 var grill;
                 var rootsshoots;
                 if(hour>11){
@@ -70,11 +74,13 @@ function getRatty(){
                     rootsshoots = allmenus["roots & shoots"];
                     console.log(grill);
                     console.log(rootsshoots);
+                    results.push(grill);
+                    results.push(rootsshoots);
                 }
+                return results;
             }
         });
-    //var menuitems = temp.menus;
-    //for(int i;i<t
+    
     
 }
 function defaultsearch(){
