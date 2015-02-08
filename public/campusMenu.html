@@ -3,34 +3,141 @@
 	<head>
 		<title>Menu | Hungry at Brown</title>
 		<link rel="stylesheet" type="text/css" href="css/campusMenu.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link href="css/combined.css" rel="stylesheet" />
+		<script src="js/functions.js" type="text/javascript"></script>
 		<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	</head>
 	<body>
-		<ul id="dining_halls">
-			<li id="ratty" class="active">RATTY</li>
-			<li id="vdub">VDUB</li>
-		</ul>
-		<hr id="division">
-		<ul id="meals">
-			<li id="breakfast" class="active">BREAKFAST</li>
-			<li id="lunch">LUNCH</li>
-			<li id="dinner">DINNER</li>
-		</ul>
-		<script>
-			$('#dining_halls li').click(function(e){
-				e.preventDefault()
-				$that = $(this); // item selected
-				$('#dining_halls').find('li').removeClass('active')
-				$that.addClass('active')
-			});
+		<section id="nav-container">
+			<nav>
+				<a href="index.html">Home</a>
+				<a href="freeFood.html">Free Food</a>
+				<a href="campusMenu.html">Campus Menu</a>
+				<a href="nearbyFriends.html">Nearby Friends</a>
+				<a href="settings.html">Settings</a>
+			</nav>
+		</section>
 
-			$('#meals li').click(function(e){
-				e.preventDefault()
-				$that = $(this); // item selected
-				$('#meals').find('li').removeClass('active')
-				$that.addClass('active')
-			});
-		</script>
+		<section id="container">
+			<header class="header-bar">
+				<div id="menu-button" onclick="toggleNav()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<h1>CAMPUS MENU</h1>
+			</header>
+		</section>
+
+		<div id="background">
+			<ul id="dining_halls">
+				<li id="ratty" class="active">RATTY</li>
+				<li id="vdub">VDUB</li>
+			</ul>
+			<ul id="meals">
+				<li id="breakfast" class="meals-active">BREAKFAST</li>
+				<li id="lunch">LUNCH</li>
+				<li id="dinner">DINNER</li>
+			</ul>
+			<script>
+				$('#dining_halls li').click(function(e){
+					e.preventDefault()
+					$that = $(this); // item selected
+					$('#dining_halls').find('li').removeClass('active')
+					$that.addClass('active')
+				});
+
+				$('#meals li').click(function(e){
+					e.preventDefault()
+					$that = $(this); // item selected
+					$('#meals').find('li').removeClass('meals-active')
+					$that.addClass('meals-active')
+				});
+
+				$('#row img').click(function(e){
+					e.preventDefault()
+					$that = $(this); // item selected
+					$that.addClass('row-liked')
+				});
+			</script>
+
+			<hr id="division">
+
+			<section id="appetizers-section">
+				<h4 class="menu-title">APPETIZERS</h4>
+				<hr id="divider">
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+			</section>
+
+			<section id="main-courses-section">
+				<h4 class="menu-title">MAIN COURSE</h4>
+				<hr id="divider">
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="images/heart.png" class="heart-image"></img>
+					<div class="food-content">
+						<h3 class="food-name">Tuscan Salad</h3>
+						<h5 class="food-description">Tuna, beans, and sprout</h5>
+						<hr id="subdivider">
+					</div>
+				</div>
+			</section>
+		</div>
 	</body>
 </html>

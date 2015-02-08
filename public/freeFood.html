@@ -2,21 +2,24 @@
 <html>
 	<head>
 		<title>Free Food | Hungry at Brown</title>
-		<link href="css/freeFood.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/freeFood.css">
+				<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link href="css/combined.css" rel="stylesheet" />
+		<script src="js/functions.js" type="text/javascript"></script>
 		<style>
 			#map-canvas{
-				width: 700px;
+				width: 500px;
 				height: 500px;
 			}
 		</style>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
 		<script>
 
 			var map
 
 			function initialize() {
 			  var mapOptions = {
-			    zoom: 16
+			    zoom: 6
 			  };
 			  map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
@@ -65,6 +68,64 @@
 		</script>
 	</head>
 	<body>
-		<div id="map-canvas"></div>
+		<section id="nav-container">
+			<nav>
+				<a href="index.html">Home</a>
+				<a href="freeFood.html">Free Food</a>
+				<a href="campusMenu.html">Campus Menu</a>
+				<a href="nearbyFriends.html">Nearby Friends</a>
+				<a href="settings.html">Settings</a>
+			</nav>
+		</section>
+
+		<section id="container">
+			<header class="header-bar">
+				<div id="menu-button" onclick="toggleNav()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<h1>FREE FOOD</h1>
+			</header>
+		</section>
+		<div id="background">
+			<div id="map-canvas"></div>
+			<div id="event-row">
+				<img src="images/marker.png" class="marker-image"></img>
+				<div class="event-content">
+					<h3 class="event-name">Brown Bag Lunch Talk</h3>
+					<h5 class="event-time">4:30 PM</h5>
+					<h5 class="event-place">Room 302, CIT</h5>
+				</div>
+			</div>
+			<hr id="events-subdivider">
+			<div id="event-row">
+				<img src="images/marker.png" class="marker-image"></img>
+				<div class="event-content">
+					<h3 class="event-name">Brown Bag Lunch Talk</h3>
+					<h5 class="event-time">4:30 PM</h5>
+					<h5 class="event-place">Room 302, CIT</h5>
+				</div>
+			</div>
+			<hr id="events-subdivider">
+			<div id="event-row">
+				<img src="images/marker.png" class="marker-image"></img>
+				<div class="event-content">
+					<h3 class="event-name">Brown Bag Lunch Talk</h3>
+					<h5 class="event-time">4:30 PM</h5>
+					<h5 class="event-place">Room 302, CIT</h5>
+				</div>
+			</div>
+			<hr id="events-subdivider">
+			<div id="event-row">
+				<img src="images/marker.png" class="marker-image"></img>
+				<div class="event-content">
+					<h3 class="event-name">Brown Bag Lunch Talk</h3>
+					<h5 class="event-time">4:30 PM</h5>
+					<h5 class="event-place">Room 302, CIT</h5>
+				</div>
+			</div>
+			<hr id="events-subdivider">
+		</div>
 	</body>
 </html>

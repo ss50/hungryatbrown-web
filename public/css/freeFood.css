@@ -1,6 +1,43 @@
-#map-canvas{
-	width: 70%;
-	margin-right:auto;
-	margin-left:auto;
-	margin-top:80px;
+#map-canvas {
+	margin: 100px auto;
+}
+
+.event-content {
+	width: 100%;
+	text-align: right;
+}
+#event-row {
+	display: flex;
+}
+
+.marker-image {
+	width: 100px;
+	height: 80px;
+	margin: 30px 40px 0px;
+	margin-left: 10%;
+}
+
+.event-name {
+	margin: 10px 0px;
+	font-size: 30px;
+	margin-right: 15%;
+}
+
+.event-time {
+	font-size: 20px;
+	color: #ababab;
+	margin: 10px 0px;
+	margin-right: 15%;
+}
+
+.event-place {
+	font-size: 20px;
+	color: #ababab;
+	margin: 10px 0px;
+	margin-right: 15%;
+}
+
+#events-subdivider {
+	width: 80%;
+	margin: 10px auto;
 }

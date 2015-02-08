@@ -5,7 +5,7 @@ html, body {
 
 .header-bar {
     width: 100%;
-    height: 100px;
+    height: 150px;
     display: flex;
     background-color: #df5a49;
 }
@@ -13,7 +13,7 @@ html, body {
     .header-bar h1 {
         position: absolute;
         left: 40%;
-        line-height: 95px;
+        line-height: 140px;
         font-size: 35px;
         color: white;
     }
@@ -23,7 +23,7 @@ html, body {
     position: absolute;
     width: 60px;
     height: 45px;
-    margin: 25px;
+    margin: 50px;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
     cursor: pointer;
@@ -44,16 +44,18 @@ html, body {
     transform: rotate(0deg);
     transition: .25s ease-in-out;
 	background-color: white;
+    z-index: 1;
 }	
 
 #nav-container {
     position: fixed;
-    margin-left: -200px;
+    margin-left: -60%;
     padding-top: 100px;
-    width: 200px;
+    width: 60%;
     height: 100%;
     background-color: #45b29d;
     transition: margin-left 0.5s ease;
+    z-index: 2;
 }
     #nav-container.nav-opened {
         margin-left: 0;
@@ -66,7 +68,8 @@ html, body {
         height: 50px;
         line-height: 50px;
         text-decoration: none;
-        font-size: 25px;
+        font-size: 50px;
+        margin: 100px 0px;
         color: white;
     }
 
@@ -80,11 +83,14 @@ html, body {
 #container {
     position: relative;
     width: 100%;
-
     transition: margin-left 0.5s ease;
 }
 #container.nav-opened {
-    margin-left: 200px;
+    margin-left: 60%;
+}
+
+#background.nav-opened {
+    -webkit-filter: blur(5px);
 }
 
 #menu-button span:nth-child(1) {
@@ -101,17 +107,19 @@ html, body {
 
 #menu-button.open span:nth-child(1) {
     transform: rotate(45deg);
-    top: -3px;
+    top: 5px;
     left: 8px;
+    z-index: 1;
 }
 
 #menu-button.open span:nth-child(2) {
     width: 0%;
     opacity: 0;
+    z-index: 1;
 }
 
 #menu-button.open span:nth-child(3) {
     transform: rotate(-45deg);
-    top: 39px;
-    left: 8px;
+    top: 5px;
+    z-index: 1;
 }

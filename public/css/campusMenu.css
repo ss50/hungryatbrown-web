@@ -3,11 +3,67 @@ body {
 	font-weight:400;
 }
 
+#divider {
+	width: 90%;
+	border-top: 1px solid #df5a49;
+	margin:auto;
+}
+
+#division {
+	border-top: 2px solid #45b29d;
+	width: 100%;
+	margin: 0px auto 80px;
+}
+
+#subdivider {
+	border-top: 1px solid #ababab;
+	width: 90%;
+	margin-left: 2%;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+.heart-image {
+	margin: 15px;
+	width: 20px;
+	height: 20px;
+}
+
+#row {
+	display: flex;
+	margin-left: 5%;
+}
+
+	.food-content {
+		width: 100%;
+		float: left;
+	}
+
+
+.menu-title {
+	margin-left: 5%;
+	margin-bottom: 5px;
+	margin-top: 50px;
+	font-size: 20px;
+	color: #df5a49;
+}
+
+.food-name {
+	margin: 6px 0px 2px;
+	margin-left: 2%;
+	font-size: 30px;
+}
+
+.food-description {
+	font-size: 20px;
+	color: #ababab;
+	margin: 0px;
+	margin-left: 2%;
+}
+
 #dining_halls{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 30px;
-	padding: 0;
+	margin: 100px auto 75px;
+	padding: 0px;
 	list-style: none;
 	font-size: 30px;
 	text-align: center;
@@ -16,16 +72,14 @@ body {
 }
 
 #dining_halls li{
+	margin: 0px;
 	display: inline;
-	margin-left: 20px;
-	margin-right: 20px;
-	padding: 5px;
+	padding: 15px 60px;
+	border: 3px solid #45B29D;
 }
 
 #meals{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 30px;
+	margin: 30px auto;
 	padding: 0;
 	list-style: none;
 	font-size: 30px;
@@ -35,9 +89,9 @@ body {
 }
 
 #meals li{
+	color: #ababab;
 	display: inline;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin: 0px 40px;
 	padding: 5px;
 	width: 40px;
 }
@@ -47,13 +101,15 @@ body {
 	color: white;
 }
 
+.meals-active{
+	color: #45B29D;
+}
+
+.row-liked{
+	background-image: url("images/filled-heart.png");
+}
+
 .inactive{
 	background-color: white;
 	color: black;
-}
-
-#division{
-	color: black;
-	width: 70%;
-	margin:auto;
 }
