@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<title>Free Food | Hungry at Brown</title>
+		<link href="css/freeFood.css" type="text/css" rel="stylesheet">
 		<style>
 			#map-canvas{
-				width: 500px;
+				width: 700px;
 				height: 500px;
 			}
 		</style>
@@ -15,7 +16,7 @@
 
 			function initialize() {
 			  var mapOptions = {
-			    zoom: 6
+			    zoom: 16
 			  };
 			  map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);

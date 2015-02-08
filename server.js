@@ -12,10 +12,11 @@ var BLUE  = "blueroom";
 //Visit localhost:8080
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
+app.set('views', __dirname + '/public'); // tell Express where to find templates
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(8080, function() { console.log(' - listening on port 8080');});
+
 getServerTime();
 getAllMenus();
 
@@ -38,15 +39,18 @@ function getAllMenus()
     var ivyurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery="+encodeURI(IVY);
     var josurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery="+encodeURI(JOS);
     var blueurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery="+encodeURI(BLUE);
-    https.get(rattyurl,function(res) {
-        console.log("Got response: " +res.statusCode);
-        console.log(res);
-    });
+
     
 }
 
 app.get('/', function(request, response){
     response.render('index.html', {});
 });
+
+app.get('/free-food', function(request, response){
+    response.render('freeFood.html', {})
+});
+
+app.listen(8080, function() { console.log(' - listening on port 8080');});
 
 
