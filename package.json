@@ -1,7 +1,26 @@
 {
+  "name": "hungryatbrown-web",
+  "version": "1.0.0",
+  "description": "make food easy",
+  "main": "server.js",
   "dependencies": {
-    "express": "~4.11.2",
-    "hbs": "~2.8.0",
-    "connect": "~3.3.4"
-  }
+    "connect": "^3.3.4",
+    "hbs": "^2.8.0",
+    "express": "^4.11.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ss50/hungryatbrown-web.git"
+  },
+  "author": "",
+  "license": "BROWN",
+  "bugs": {
+    "url": "https://github.com/ss50/hungryatbrown-web/issues"
+  },
+  "homepage": "https://github.com/ss50/hungryatbrown-web"
 }
