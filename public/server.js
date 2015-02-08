@@ -14,7 +14,7 @@ app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 app.set('views', __dirname + '/public'); // tell Express where to find templates
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 
 
 getServerTime();
