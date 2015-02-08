@@ -16,7 +16,6 @@
 			<nav>
 				<a href="freeFood.html">Free Food</a>
 				<a href="campusMenu.html">Campus Menu</a>
-				<a href="nearbyFriends.html">Nearby Friends</a>
 				<a href="index.html">Log Out</a>
 			</nav>
 		</section>
@@ -43,6 +42,7 @@
 				<li id="dinner">DINNER</li>
 			</ul>
 			<script>
+			var madShitYo = function(rattyfinalres) {
 				$('#dining_halls li').click(function(e){
 					e.preventDefault()
 					$that = $(this); // item selected
@@ -58,36 +58,35 @@
 				});
 
 				$('#row img').click(function(e){
-					window.alert("heart")
 					e.preventDefault()
 					$that = $(this); // item selected
 					$that.addClass('row-liked')
 				});
 				
-				for (var i=0; i<5; i++) {
+				for (var i=0; i<rattyfinalres.length; i++) {
 					
 					// if (results.length<5){
 					// 	//breakfast
 					// }
-					var row = rattyfinalres[i];
-					console.log(row);
+					console.log("row lifestyle:", row);
 
 					for (var j=0; j < row.length; j++) {
 													document.getElementById("food-name").innerHTML = ""+ rattyfinalres[i][j];
-
-						
+	
 					}
 				}
+			}
 
 			</script>
 
 			<hr id="division">
+			<h4 id="eatery-hours">OPEN</h4>
 
 			<section id="appetizers-section">
 				<h4 class="menu-title">APPETIZERS</h4>
 				<hr id="divider">
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>
@@ -95,7 +94,7 @@
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>
@@ -103,7 +102,7 @@
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>
@@ -111,7 +110,7 @@
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>
@@ -124,7 +123,7 @@
 				<h4 class="menu-title">MAIN COURSE</h4>
 				<hr id="divider">
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>
@@ -132,7 +131,7 @@
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>
@@ -140,7 +139,7 @@
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>
@@ -148,7 +147,7 @@
 					</div>
 				</div>
 				<div id="row">
-					<img src="images/heart.png" class="heart-image"></img>
+					<img src="images/heart.png" id="heart-image"></img>
 					<div class="food-content">
 						<h3 id="food-name">Tuscan Salad</h3>
 						<h5 id="food-description">Tuna, beans, and sprout</h5>

@@ -17,10 +17,10 @@ $(window).load(function() {
 console.log("here");
          //$("#hello").click(function() {
 
-         getVdub();
+         //getVdub();
          //});
 
-//     getRatty();
+     getRatty();
 //     console.log(length(rattyfinalres[0]));
 //     getVdub();
 
@@ -107,6 +107,10 @@ function getVdub(){
                 vdubresults.push(mainmenu);
                 console.log(vdubresults);
                 vdubfinalres = vdubresults;
+
+
+                madShitYo(data)
+
                 return vdubresults;
             }
         });
@@ -166,8 +170,13 @@ function getRatty(){
                     rresults.push(grill);
                     rresults.push(rootsshoots);
                 }
-                console.log(rresults);
+                //console.log(rresults);
                 rattyfinalres = rresults;
+
+
+
+                madShitYo(data.menus)
+
                 return rresults;
             }
         });
