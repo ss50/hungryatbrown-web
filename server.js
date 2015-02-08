@@ -1,7 +1,7 @@
 var express = require('express');
-var fs = require('fs');
-var async = require('async');
 var https = require('https');
+var connect = require('connect');
+var hbs = require('hbs')
 var app = express();
 var RATTY = "ratty";
 var VDUB  = "vdub";
@@ -10,6 +10,11 @@ var IVY   = "ivy";
 var JOS   = "jos";
 var BLUE  = "blueroom";
 //Visit localhost:8080
+app.set('view engine', 'html');
+app.engine('html', hbs.__express);
+
+app.use(express.static(__dirname + '/public'));
+
 app.listen(8080, function() { console.log(' - listening on port 8080');});
 getServerTime();
 getAllMenus();
@@ -38,12 +43,10 @@ function getAllMenus()
         console.log(res);
     });
     
-    //async.parallel({
-   //https.get(rattyurl, function(res) {
-     //     console.log("Got response: " + res.statusCode);
-//          callback(null, res);
-//        }).on('error', function(e) {
-//          console.log("Got error: " + e.message);
-//        });
-    
 }
+
+app.get('/', function(request, response){
+    response.render('index.html', {});
+});
+
+

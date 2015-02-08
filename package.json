@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "~4.11.2",
+    "hbs": "~2.8.0",
+    "connect": "~3.3.4"
+  }
+}

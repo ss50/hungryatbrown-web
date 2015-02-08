@@ -1,0 +1,59 @@
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight:400;
+}
+
+#dining_halls{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	padding: 0;
+	list-style: none;
+	font-size: 30px;
+	text-align: center;
+	list-style-type: none;
+	color: #45B29D;
+}
+
+#dining_halls li{
+	display: inline;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 5px;
+}
+
+#meals{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	padding: 0;
+	list-style: none;
+	font-size: 30px;
+	text-align: center;
+	list-style-type: none;
+	color: #45B29D;
+}
+
+#meals li{
+	display: inline;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 5px;
+	width: 40px;
+}
+
+.active{
+	background-color: #45B29D;
+	color: white;
+}
+
+.inactive{
+	background-color: white;
+	color: black;
+}
+
+#division{
+	color: black;
+	width: 70%;
+	margin:auto;
+}
