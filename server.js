@@ -12,9 +12,9 @@ var BLUE  = "blueroom";
 //Visit localhost:8080
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
-app.set('views', __dirname + ‘/‘); // tell Express where to find templates
+app.set('views', __dirname + '/public'); // tell Express where to find templates
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public'));
 
 
 getServerTime();
