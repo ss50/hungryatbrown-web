@@ -34,12 +34,13 @@ function getRatty(){
     var hour = date.getHours();
     var minutes = date.getMinutes();
     //if greater than 7:30 pm, then display tomorrow's menu
-    
+    var tomorrow = false;
     if((hour==19&&minutes>30)||hour>19){
         closed = true;
        //get tomorrow morning's menu
-       baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(date.getDay()+1)+"&hour=12";
+       baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(date.getDay()+1)+"&hour=10";
         console.log(baseurl);
+        tomorrow = true;
     }
     console.log(date+" "+hour+" "+minutes+" "+(date.getMonth()));
     if(hour===17&&minutes<30){
@@ -48,6 +49,7 @@ function getRatty(){
     else{
         closingsoon = "Not Closing Soon";
     }
+    var results = [];
      $.ajax( {
             url: baseurl,
             dataType: "jsonp",
@@ -63,18 +65,23 @@ function getRatty(){
                 console.log(bistro);
                 console.log(chefcorner);
                 console.log(dailysbar);
+                results.push(bistro);
+                results.push(chefcorner);
+                results.push(dailysbar);
                 var grill;
                 var rootsshoots;
-                if(hour>11){
+                if(hour>11&&!tomorrow){
                     grill = allmenus["grill"];
                     rootsshoots = allmenus["roots & shoots"];
                     console.log(grill);
                     console.log(rootsshoots);
+                    results.push(grill);
+                    results.push(rootsshoots);
                 }
+                return results;
             }
         });
-    //var menuitems = temp.menus;
-    //for(int i;i<t
+    
     
 }
 function defaultsearch(){
