@@ -13,18 +13,18 @@ var closed;
 var rattyfinalres=[];
 var vdubfinalres=[];
 //test methods
-$(window).load(function() {
-console.log("here");
-        // $("#hello").click(function() {
+// $(window).load(function() {
+// console.log("here");
+//         // $("#hello").click(function() {
 
-        //     getVdub();
-        // });
+//         //     getVdub();
+//         // });
 
-    getRatty();
-    console.log(length(rattyfinalres[0]));
-    getVdub();
+//     getRatty();
+//     console.log(length(rattyfinalres[0]));
+//     getVdub();
 
-});
+// });
   
 function getServerTime() {
     var date = new Date();

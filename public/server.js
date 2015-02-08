@@ -39,7 +39,6 @@ function getAllMenus()
     var ivyurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery="+encodeURI(IVY);
     var josurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery="+encodeURI(JOS);
     var blueurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery="+encodeURI(BLUE);
-
     
 }
 
