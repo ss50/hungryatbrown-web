@@ -111,10 +111,4 @@ body {
 }
 
 .row-liked{
-	content: url("images/filled-heart.png");
-}
-
-.inactive{
-	background-color: white;
-	color: black;
-}
+	content: url("filled-heart.png");
