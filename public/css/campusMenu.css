@@ -24,7 +24,7 @@ body {
 }
 
 .heart-image {
-	margin: 15px;
+	margin: 30px 15px;
 	width: 20px;
 	height: 20px;
 }
@@ -48,13 +48,13 @@ body {
 	color: #df5a49;
 }
 
-.food-name {
+#food-name {
 	margin: 6px 0px 2px;
 	margin-left: 2%;
 	font-size: 30px;
 }
 
-.food-description {
+#food-description {
 	font-size: 20px;
 	color: #ababab;
 	margin: 0px;
@@ -85,11 +85,13 @@ body {
 	font-size: 30px;
 	text-align: center;
 	list-style-type: none;
-	color: #45B29D;
+	color: #ababab;
 }
+	.meals-active{
+		color: #45B29D;
+	}
 
 #meals li{
-	color: #ababab;
 	display: inline;
 	margin: 0px 40px;
 	padding: 5px;
@@ -99,10 +101,6 @@ body {
 .active{
 	background-color: #45B29D;
 	color: white;
-}
-
-.meals-active{
-	color: #45B29D;
 }
 
 .row-liked{

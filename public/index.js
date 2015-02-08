@@ -10,15 +10,22 @@ var vduburl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&ea
 var somedata;
 var closingsoon;
 var closed;
+var rattyfinalres=[];
+var vdubfinalres=[];
 //test methods
- $(window).load(function() {
+$(window).load(function() {
+console.log("here");
+        // $("#hello").click(function() {
 
-        $("#hello").click(function() {
+        //     getVdub();
+        // });
 
-            getVdub();
-        });
+    getRatty();
+    console.log(length(rattyfinalres[0]));
+    getVdub();
 
-    });
+});
+  
 function getServerTime() {
     var date = new Date();
 
@@ -33,7 +40,7 @@ function getVdub(){
     var date = getServerTime();
     var hour = date.getHours();
     var minutes = date.getMinutes();
-    closed = true;
+    closed = false;
     var tomorrow = false;
     var earlybreakfast = false;
     var closingsoon;
@@ -69,29 +76,26 @@ function getVdub(){
     else{
         closingsoon = "Not Closing Soon";
     }
-    var results = [];
-    if(closed){
-        return results
-    }
-    else{
-        $.ajax( {
-                url: baseurl,
-                dataType: "jsonp",
-                success: function(data) {
-                    //assign retrieved data to variable. Vdub only has two menus every day
-                    temp = data;
-                    //console.log(data);
-                    console.log(data.menus[0]);
-                    var allmenus = data.menus[0];
-                    var dailysbar = allmenus["daily sidebars"];
-                    var mainmenu = allmenus["main menu"];
-                    results.push(dailysbar);
-                    results.push(mainmenu);
-                    console.log(results);
-                    return results;
-                }
-            });
-    }
+    var vdubesults = [];  
+    $.ajax( {
+            url: baseurl,
+            dataType: "jsonp",
+            success: function(data) {
+                //assign retrieved data to variable. Vdub only has two menus every day
+                temp = data;
+                //console.log(data);
+                //console.log(data.menus[0]);
+                var allmenus = data.menus[0];
+                var dailysbar = allmenus["daily sidebars"];
+                var mainmenu = allmenus["main menu"];
+                results.push(dailysbar);
+                results.push(mainmenu);
+                console.log(results);
+                vdubfinalres = results;
+                return results;
+            }
+        });
+    
 }
 //gets ratty menu at the time, returns array.
 //if 30 minutes or less before ratty closure, returns tomorrow's menu
@@ -103,6 +107,7 @@ function getRatty(){
     var minutes = date.getMinutes();
     //if greater than 7:30 pm, then display tomorrow's menu
     var tomorrow = false;
+    closed = false;
     if((hour==19&&minutes>30)||hour>19){
         closed = true;
        //get tomorrow morning's menu
@@ -121,10 +126,7 @@ function getRatty(){
     else{
         closingsoon = "Not Closing Soon";
     }
-    var results = [];
-    if(closed){
-        return results;
-    }
+    var rresults = [];
      $.ajax( {
             url: baseurl,
             dataType: "jsonp",
@@ -137,42 +139,22 @@ function getRatty(){
                 var bistro = allmenus.bistro;
                 var chefcorner = allmenus["chef's corner"];
                 var dailysbar = allmenus["daily sidebars"];
-                console.log(bistro);
-                console.log(chefcorner);
-                console.log(dailysbar);
-                results.push(bistro);
-                results.push(chefcorner);
-                results.push(dailysbar);
+                rresults.push(bistro);
+                rresults.push(chefcorner);
+                rresults.push(dailysbar);
                 var grill;
                 var rootsshoots;
                 if(hour>11&&!tomorrow){
                     grill = allmenus["grill"];
                     rootsshoots = allmenus["roots & shoots"];
-                    console.log(grill);
-                    console.log(rootsshoots);
-                    results.push(grill);
-                    results.push(rootsshoots);
+                    rresults.push(grill);
+                    rresults.push(rootsshoots);
                 }
-                return results;
+                console.log(rresults);
+                rattyfinalres = rresults;
+                return rresults;
             }
         });
     
     
-}
-function defaultsearch(){
-    $(window).load(function() {
-
-        $("#hello").click(function() {
-
-            $.ajax( {
-                url: rattyurl,
-                dataType: "jsonp",
-                success: function(data) {
-                    console.log(data.menus[0].eatery);
-                    somedata = data;
-                }
-            });
-        });
-
-    });
 }
