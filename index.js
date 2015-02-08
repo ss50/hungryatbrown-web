@@ -5,7 +5,7 @@ var IVY   = "ivy";
 var JOS   = "jos";
 var BLUE  = "blueroom";
 var rattyurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery=ratty";
-var testurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery=ratty&hour=10&day=7&month=2"
+var testurl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery=ratty&hour=10&day=7&month=2";
 var vduburl = "https://api.students.brown.edu/dining/menu?client_id=hackathon&eatery=vdub";
 var somedata;
 var closingsoon;
@@ -33,19 +33,27 @@ function getVdub(){
     var date = getServerTime();
     var hour = date.getHours();
     var minutes = date.getMinutes();
-    var isopen = true;
-    var tomorrow;
+    closed = true;
+    var tomorrow = false;
     var earlybreakfast = false;
     var closingsoon;
     
-    if((hour>7)||(hour===7)&&(minutes<30)){
-        isopen = false;
+    if((hour<7)||((hour===7)&&(minutes<30))){
+        closed = true;
         earlybreakfast = true;
     }
-    if((hour>19)||(hour===19)&&(minutes>30)){
-        isopen = false;
+    if((hour>19)||((hour===19)&&(minutes>30))){
+        closed = true;
         tomorrow = true;
     }
+    //vdub is closed between 2:30 -4:30 pm. This deals with that edge case. Gets next meal, which is dinner that day.
+    var isgreater = (hour>14)||((hour===14)&&(minutes>30));
+    var islesser = (hour>16)||((hour===16)&&(minutes<30));
+    if(isgreater&&islesser){
+        closed= true;
+        baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(date.getDay()+1)+"&hour=5";
+    }
+    console.log(closed);
     //get tomorrow's menu later, change url now.
     if(tomorrow){
         baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(date.getDay()+1)+"&hour=8";
@@ -62,23 +70,28 @@ function getVdub(){
         closingsoon = "Not Closing Soon";
     }
     var results = [];
-    $.ajax( {
-            url: baseurl,
-            dataType: "jsonp",
-            success: function(data) {
-                //assign retrieved data to variable. Vdub only has two menus every day
-                temp = data;
-                //console.log(data);
-                console.log(data.menus[0]);
-                var allmenus = data.menus[0];
-                var dailysbar = allmenus["daily sidebars"];
-                var mainmenu = allmenus["main menu"];
-                results.push(dailysbar);
-                results.push(mainmenu);
-                console.log(results);
-                return results;
-            }
-        });
+    if(closed){
+        return results
+    }
+    else{
+        $.ajax( {
+                url: baseurl,
+                dataType: "jsonp",
+                success: function(data) {
+                    //assign retrieved data to variable. Vdub only has two menus every day
+                    temp = data;
+                    //console.log(data);
+                    console.log(data.menus[0]);
+                    var allmenus = data.menus[0];
+                    var dailysbar = allmenus["daily sidebars"];
+                    var mainmenu = allmenus["main menu"];
+                    results.push(dailysbar);
+                    results.push(mainmenu);
+                    console.log(results);
+                    return results;
+                }
+            });
+    }
 }
 //gets ratty menu at the time, returns array.
 //if 30 minutes or less before ratty closure, returns tomorrow's menu
@@ -109,6 +122,9 @@ function getRatty(){
         closingsoon = "Not Closing Soon";
     }
     var results = [];
+    if(closed){
+        return results;
+    }
      $.ajax( {
             url: baseurl,
             dataType: "jsonp",
