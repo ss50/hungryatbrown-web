@@ -1,0 +1,3 @@
+<IfModule mod_headers.c>
+    header add Access-Control-Allow-Origin: "https://arcane-shore-1097.herokuapp.com"
+</IfModule>

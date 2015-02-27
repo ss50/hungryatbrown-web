@@ -51,16 +51,8 @@ var madShitYo = function(rattyfinalres) {
 
 //test methods
 $(window).load(function() {
-console.log("loaded");
-         //$("#hello").click(function() {
-
-         //getVdub();
-         //});
-
-     getRatty();
-//     console.log(length(rattyfinalres[0]));
-//     getVdub();
-
+    console.log("here");
+    getVdub()
 });
   
 function getServerTime() {
@@ -135,7 +127,7 @@ function getVdub(){
             success: function(data) {
                 //assign retrieved data to variable. Vdub only has two menus every day
                 temp = data;
-                //console.log(data);
+                console.log(data);
                 //console.log(data.menus[0]);
                 var allmenus = data.menus[0];
                 var dailysbar = allmenus["daily sidebars"];
@@ -145,10 +137,28 @@ function getVdub(){
                 console.log(vdubresults);
                 vdubfinalres = vdubresults;
 
+                section = document.getElementById("appetizers-section");
+                console.log(vdubfinalres[0].length)
+                for (var i = 0; i < vdubfinalres[0].length; i++){
+                    var menu_item = document.createElement("div");
+                    var food_content = document.createElement("div");
+                    var divider = document.createElement("hr");
+                    var food_name = document.createElement("h3");
+                    var food_desc = document.createElement("h5");
+                    food_name.innerHTML = vdubfinalres[0][i];
 
-                madShitYo(data)
+                    menu_item.setAttribute("id", "row");
+                    food_content.setAttribute("class", "food-content");
+                    food_name.setAttribute("id", "food-name");
+                    food_desc.setAttribute("id", "food-description");
+                    divider.setAttribute("id", "subdivider");
 
-                return vdubresults;
+                    food_content.appendChild(food_name);
+                    food_content.appendChild(food_desc);
+                    food_content.appendChild(divider);
+                    menu_item.appendChild(food_content);
+                    section.appendChild(menu_item);
+                }
             }
         });
     
@@ -190,7 +200,7 @@ function getRatty(){
             success: function(data) {
                 //assign retrieved data to variable
                 temp = data;
-                //console.log(data);
+                console.log(data);
                 console.log(data.menus[0]);
                 var allmenus = data.menus[0];
                 var bistro = allmenus.bistro;
@@ -207,17 +217,38 @@ function getRatty(){
                     rresults.push(grill);
                     rresults.push(rootsshoots);
                 }
+                //console.log(rresults);
+                rattyfinalres = rresults;
+                //console.log(rattyfinalres);
                 console.log("RATTY: " + rresults);
                 
-
-
-
                 madShitYo(data.menus)
                 rattyfinalres = rresults;
 
                 return rresults;
             }
         });
+
     
     
+}
+
+function getEvents(){
+    var workingurl = "http://api.douban.com/v2/book/1220562";
+    var url = "https://arcane-shore-1097.herokuapp.com";
+    var results = [];
+    console.log("Inside getEvents()");
+
+    $.ajax({
+        dataType: "jsonp",
+        url: url,
+        data: {"callback":"myfunction"},
+        success: myfunction,
+        cache:false
+    });
+
+}
+
+function myfunction(data){
+    console.log(data);
 }
