@@ -56,16 +56,9 @@ body {
 }
 
 #food-name {
-	margin: 6px 0px 2px;
+	margin: 20px 0px;
 	margin-left: 2%;
 	font-size: 30px;
-}
-
-#food-description {
-	font-size: 20px;
-	color: #ababab;
-	margin: 0px;
-	margin-left: 2%;
 }
 
 #dining_halls{
