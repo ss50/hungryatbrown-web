@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Menu | Hungry at Brown</title>
+		<link rel="stylesheet" type="text/css" href="css/campusMenu.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link href="css/combined.css" rel="stylesheet" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+		<script src="js/functions.js" type="text/javascript"></script>
+		<script src="index.js" type="text/javascript"></script>
+		<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script>
+			$(window).load(function() {
+			    console.log("here");
+			    getRatty()
+			});
+		</script>
+	</head>
+	<body>
+		<section id="nav-container">
+			<nav>
+				<a href="freeFood.html">Free Food</a>
+				<a href="campusMenu.html">Campus Menu</a>
+				<a href="index.html">Log Out</a>
+			</nav>
+		</section>
+
+		<section id="container">
+			<header class="header-bar">
+				<div id="menu-button" onclick="toggleNav()">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<h1>CAMPUS MENU</h1>
+			</header>
+		</section>
+
+		<div id="background">
+			<form>
+			<ul id="dining_halls">
+				<li id="ratty" class="active">RATTY</li>
+				<li id="vdub">VDUB</li>	
+			</ul>
+			</form>
+			<ul id="meals">
+				<li id="breakfast" class="meals-active">BREAKFAST</li>
+				<li id="lunch">LUNCH</li>
+				<li id="dinner">DINNER</li>
+			</ul>
+
+			<hr id="division">
+			<h4 id="eatery-hours">OPEN</h4>
+
+			<div id="vdub">
+				<div id="appetizers-section">
+				</div> 
+				<div id="main-courses-section">
+				</div>
+			</div>
+
+			<div id="ratty">
+				<div id="roots-and-shoots">
+				</div>
+				<div id="bistro">
+				</div>
+				<div id="grill">
+				</div>
+				<div id="chef's-corner">
+				</div>
+				<div id="daily_sidebars">
+				</div>
+			</div>
+
+			<!-- <section id="main-courses-section">
+				<h4 class="menu-title">MAIN COURSE</h4>
+				<hr id="divider">
+				<div id="row">
+					<img src="css/heart.png" id="heart-image"></img>
+					<div class="food-content">
+						<h3 id="food-name">Honey Mustard Chicken</h3>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="css/heart.png" id="heart-image"></img>
+					<div class="food-content">
+						<h3 id="food-name">Vegan Brown Rice Pilaf</h3>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="css/heart.png" id="heart-image"></img>
+					<div class="food-content">
+						<h3 id="food-name">White & Whole Wheat Pasta</h3>
+						<hr id="subdivider">
+					</div>
+				</div>
+				<div id="row">
+					<img src="css/heart.png" id="heart-image"></img>
+					<div class="food-content">
+						<h3 id="food-name">Choice of Assorted Pizza</h3>
+						<hr id="subdivider">
+					</div>
+				</div>
+			</section> -->
+		</div>
+	</body>
+</html>
