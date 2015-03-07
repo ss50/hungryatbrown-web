@@ -49,11 +49,6 @@ var madShitYo = function(rattyfinalres) {
     }
 }
 
-//test methods
-$(window).load(function() {
-    console.log("here");
-    getVdub()
-});
   
 function getServerTime() {
     var date = new Date();
@@ -199,38 +194,31 @@ function getRatty(){
             dataType: "jsonp",
             success: function(data) {
                 //assign retrieved data to variable
-                temp = data;
-                console.log(data);
-                console.log(data.menus[0]);
+
                 var allmenus = data.menus[0];
-                var bistro = allmenus.bistro;
-                var chefcorner = allmenus["chef's corner"];
-                var dailysbar = allmenus["daily sidebars"];
-                rresults.push(bistro);
-                rresults.push(chefcorner);
-                rresults.push(dailysbar);
+                console.log(allmenus);
                 var grill;
                 var rootsshoots;
+                var bistro = allmenus["bistro"]
+                var chefcorner = allmenus["chef's corner"];
+                var dailysbar = allmenus["daily sidebars"];
+                rresults.push(["Bistro", "bistro", bistro]);
+                rresults.push(["Chef's Corner", "chef's-corner", chefcorner]);
+                rresults.push(["Daily Sidebar", "daily_sidebars", dailysbar]);
+                
                 if(hour>11&&!tomorrow){
                     grill = allmenus["grill"];
                     rootsshoots = allmenus["roots & shoots"];
-                    rresults.push(grill);
-                    rresults.push(rootsshoots);
+                    rresults.push(["Grill", "grill", grill]);
+                    rresults.push(["Roots and Shoots", "roots-and-shoots", rootsshoots]);
                 }
-                //console.log(rresults);
-                rattyfinalres = rresults;
-                //console.log(rattyfinalres);
-                console.log("RATTY: " + rresults);
-                
-                madShitYo(data.menus)
-                rattyfinalres = rresults;
 
-                return rresults;
+                for (var i = 0; i < rresults.length; i++){
+                    console.log(rresults[i]);
+                }
+                displayRattyMenu(rresults);
             }
-        });
-
-    
-    
+        });    
 }
 
 function getEvents(){
@@ -247,6 +235,46 @@ function getEvents(){
         cache:false
     });
 
+}
+
+function displaySection(title, sectionid, data){
+    var section = document.getElementById(sectionid);
+    var sectiontitle = document.createElement("h4");
+    var divider = document.createElement("hr");
+    
+
+    sectiontitle.setAttribute("class", "menu-title");
+    divider.setAttribute("id", "divider");
+    sectiontitle.innerHTML = title;
+    section.appendChild(sectiontitle);
+    section.appendChild(divider);
+
+    for (var i = 0; i < data.length; i++){
+        var row = document.createElement("div");
+        var foodcontent = document.createElement("div");
+        var foodname = document.createElement("h3");
+        var subdivider = document.createElement("hr");
+
+        row.setAttribute("id", "row");
+        foodcontent.setAttribute("class", "food-content");
+        foodname.setAttribute("id", "food-name");
+        subdivider.setAttribute("id", "subdivider");
+
+        foodname.innerHTML = data[i];
+
+        foodcontent.appendChild(foodname);
+        foodcontent.appendChild(subdivider);
+
+        row.appendChild(foodcontent);
+        section.appendChild(row);
+    }
+}
+
+function displayRattyMenu(data){
+    for (var i = 0; i < data.length; i++){
+        //console.log(data[i][1]);
+        displaySection(data[i][0], data[i][1], data[i][2]);
+    }
 }
 
 function myfunction(data){
