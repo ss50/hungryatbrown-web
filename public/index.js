@@ -121,39 +121,13 @@ function getVdub(){
             dataType: "jsonp",
             success: function(data) {
                 //assign retrieved data to variable. Vdub only has two menus every day
-                temp = data;
-                console.log(data);
-                //console.log(data.menus[0]);
                 var allmenus = data.menus[0];
                 var dailysbar = allmenus["daily sidebars"];
                 var mainmenu = allmenus["main menu"];
-                vdubresults.push(dailysbar);
-                vdubresults.push(mainmenu);
-                console.log(vdubresults);
-                vdubfinalres = vdubresults;
-
-                section = document.getElementById("appetizers-section");
-                console.log(vdubfinalres[0].length)
-                for (var i = 0; i < vdubfinalres[0].length; i++){
-                    var menu_item = document.createElement("div");
-                    var food_content = document.createElement("div");
-                    var divider = document.createElement("hr");
-                    var food_name = document.createElement("h3");
-                    var food_desc = document.createElement("h5");
-                    food_name.innerHTML = vdubfinalres[0][i];
-
-                    menu_item.setAttribute("id", "row");
-                    food_content.setAttribute("class", "food-content");
-                    food_name.setAttribute("id", "food-name");
-                    food_desc.setAttribute("id", "food-description");
-                    divider.setAttribute("id", "subdivider");
-
-                    food_content.appendChild(food_name);
-                    food_content.appendChild(food_desc);
-                    food_content.appendChild(divider);
-                    menu_item.appendChild(food_content);
-                    section.appendChild(menu_item);
-                }
+                vdubresults.push(["Daily Sidebar", "sidebar", dailysbar]);
+                vdubresults.push(["Main Menu", "main-menu", mainmenu]);
+                
+                displayMenu(vdubresults);
             }
         });
     
@@ -196,7 +170,6 @@ function getRatty(){
                 //assign retrieved data to variable
 
                 var allmenus = data.menus[0];
-                console.log(allmenus);
                 var grill;
                 var rootsshoots;
                 var bistro = allmenus["bistro"]
@@ -213,10 +186,7 @@ function getRatty(){
                     rresults.push(["Roots and Shoots", "roots-and-shoots", rootsshoots]);
                 }
 
-                for (var i = 0; i < rresults.length; i++){
-                    console.log(rresults[i]);
-                }
-                displayRattyMenu(rresults);
+                displayMenu(rresults);
             }
         });    
 }
@@ -241,7 +211,6 @@ function displaySection(title, sectionid, data){
     var section = document.getElementById(sectionid);
     var sectiontitle = document.createElement("h4");
     var divider = document.createElement("hr");
-    
 
     sectiontitle.setAttribute("class", "menu-title");
     divider.setAttribute("id", "divider");
@@ -270,9 +239,8 @@ function displaySection(title, sectionid, data){
     }
 }
 
-function displayRattyMenu(data){
+function displayMenu(data){
     for (var i = 0; i < data.length; i++){
-        //console.log(data[i][1]);
         displaySection(data[i][0], data[i][1], data[i][2]);
     }
 }
