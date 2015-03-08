@@ -50,8 +50,8 @@ html, body {
 #nav-container {
     position: fixed;
     margin-left: -60%;
-    padding-top: 100px;
-    width: 60%;
+    padding-top: 80px;
+    width: 50%;
     height: 100%;
     background-color: #df5a49;
     transition: margin-left 0.5s ease;
