@@ -14,39 +14,9 @@ var rattyfinalres=[];
 var vdubfinalres=[];
 
 
-var madShitYo = function(rattyfinalres) {
-    $('#dining_halls li').click(function(e){
-        e.preventDefault()
-        $that = $(this); // item selected
-        $('#dining_halls').find('li').removeClass('active')
-        $that.addClass('active')
-    });
-
-    $('#meals li').click(function(e){
-        e.preventDefault()
-        $that = $(this); // item selected
-        $('#meals').find('li').removeClass('meals-active')
-        $that.addClass('meals-active')
-    });
-
-    $('#row img').click(function(e){
-        e.preventDefault()
-        $that = $(this); // item selected
-        if($that.className != 'row-liked') {
-            $that.addClass('row-liked')
-        } else {
-            $that.removeClass('row-liked')
-        }    
-    });
-
-    for (var i=0; i<rattyfinalres.length; i++) {
-        var row = rattyfinalres[i];
-        for (var j=0; j<row.length; j++) {
-            console.log("ITEMS:"+ rattyfinalres[i][j])
-            $('#food-name').innerHTML=rattyfinalres[i][j];
-            $('#food-description').innerHTML=rattyfinalres[i][j];
-        }
-    }
+function highlightTimeOfDay(id) {
+    $(".meals-active").remove();
+    $(id).addClass("meals-active");
 }
 
   
@@ -85,6 +55,7 @@ function getVdub(){
         if((hour<7)||((hour===7)&&(minutes<30))){
             closed = true;
             earlybreakfast = true;
+            highlightTimeOfDay("#breakfast");
         }
         if((hour>19)||((hour===19)&&(minutes>30))){
             closed = true;
@@ -97,6 +68,7 @@ function getVdub(){
     if(isgreater&&islesser){
         closed= true;
         baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(monthday+1)+"&hour=5";
+        highlightTimeOfDay("#dinner");
     }
     console.log(closed);
     //get tomorrow's menu later, change url now.
@@ -146,16 +118,24 @@ function getRatty(){
     closed = false;
     if((hour==19&&minutes>30)||hour>19){
         closed = true;
-       //get tomorrow morning's menu
-       baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(dayofmonth+1)+"&hour=10";
+        //get tomorrow morning's menu
+        baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(dayofmonth+1)+"&hour=10";
         console.log(baseurl);
         tomorrow = true;
+        highlightTimeOfDay("#breakfast");
     }
     //somehow, really early morning, display breakfast of that day
     if(hour<7||(hour==7&&minutes<30)){
         baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(dayofmonth)+"&hour=10";
-   }
+        highlightTimeOfDay("#breakfast");
+    }
     console.log(date+" "+hour+" "+minutes+" "+(date.getMonth()));
+    if (hour> 11 && hour <=3){
+        highlightTimeOfDay("#lunch");
+    }
+    if (hour >= 4 && hour <= 7) {
+        highlightTimeOfDay("#dinner");
+    }
     if(hour===19&&minutes<30){
         closingsoon = "Closing Soon";
     }
