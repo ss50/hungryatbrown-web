@@ -92,9 +92,10 @@ a:link{
 	list-style-type: none;
 	color: #ababab;
 }
-	.meals-active{
-		color: #45B29D;
-	}
+
+.meals-active{
+	color: #45B29D;
+}
 
 #meals li{
 	display: inline;

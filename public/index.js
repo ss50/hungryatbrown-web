@@ -116,24 +116,29 @@ function getRatty(){
     var tomorrow = false;
     var dayofmonth = date.getDate();
     closed = false;
+    console.log("Hour: " + hour + " minutes: " + minutes);
     if((hour==19&&minutes>30)||hour>19){
         closed = true;
         //get tomorrow morning's menu
         baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(dayofmonth+1)+"&hour=10";
         console.log(baseurl);
+        console.log("Breakfast time");
         tomorrow = true;
         highlightTimeOfDay("#breakfast");
     }
     //somehow, really early morning, display breakfast of that day
     if(hour<7||(hour==7&&minutes<30)){
+        console.log("Breakfast time");
         baseurl = baseurl +"&year="+date.getFullYear()+"&month="+(date.getMonth()+1)+"&day="+(dayofmonth)+"&hour=10";
         highlightTimeOfDay("#breakfast");
     }
     console.log(date+" "+hour+" "+minutes+" "+(date.getMonth()));
-    if (hour> 11 && hour <=3){
+    if (hour > 11 && hour <=15){
+        console.log("Lunch time");
         highlightTimeOfDay("#lunch");
     }
-    if (hour >= 4 && hour <= 7) {
+    if (hour >= 16 && hour <= 19) {
+        console.log("Dinner time");
         highlightTimeOfDay("#dinner");
     }
     if(hour===19&&minutes<30){
