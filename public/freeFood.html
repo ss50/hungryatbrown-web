@@ -106,6 +106,16 @@
 			</div>
 			<hr id="events-subdivider">
 		</div> -->
-		
+		<script>
+				window.onload = function() {
+					document.getElementById("free-food").onclick = function() {
+						var form = document.createElement("form");
+						form.action = "/free-food";
+						form.method = "POST";
+						form.submit();
+						return false;
+					}
+				}
+			</script>
 	</body>
 </html>
