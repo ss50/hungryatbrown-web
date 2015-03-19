@@ -43,6 +43,10 @@ function getAllMenus()
     
 }
 
+app.post('/free-food', function(request, response){
+    response.redirect('/free-food');
+});
+
 
 app.get('/', function(request, response){
     response.render('index.html', {});

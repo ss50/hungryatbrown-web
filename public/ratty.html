@@ -22,13 +22,14 @@
 			<nav>
 <!-- 				<a href="freeFood.html">Free Food</a> -->
 <!-- 				<a href="campusMenu.html">Campus Menu</a> -->
-				<a href="vdub.html">VDub</a>
+				<a href="ratty.html">Ratty</a>
+				<a href="vdub.html">Vdub</a>
 				<a href="ivyroom.html">Ivy Room</a>
 				<a href="jos.html">Jo's</a>
 				<a href="blueroom.html">Blue Room</a>
 				<a href="andrews.html">Andrews</a>
-				<a href="freeFood.html">Free Food</a>
-				<a href="campusMenu.html">Home</a>
+				<a id="free-food" href="#" >Free Food</a>
+				<a href="campusMenu.html">Home</a
 			</nav>
 		</section>
 
@@ -73,6 +74,18 @@
 				<div id="daily_sidebars">
 				</div>
 			</div>
+
+			<script>
+				window.onload = function() {
+					document.getElementById("free-food").onclick = function() {
+						var form = document.createElement("form");
+						form.action = "/free-food";
+						form.method = "POST";
+						form.submit();
+						return false;
+					}
+				}
+			</script>
 
 <!-- 			<section id="main-courses-section">
 				<h4 class="menu-title">MAIN COURSE</h4>

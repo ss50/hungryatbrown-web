@@ -14,13 +14,14 @@
 	<body>
 		<section id="nav-container">
 			<nav style="text-align: center">
-				<a href="vdub.html">VDub</a>
 				<a href="ratty.html">Ratty</a>
-				<a href="andrews.html">Andrews</a>
-				<a href="jos.html">Jo's</a>
+				<a href="vdub.html">Vdub</a>
 				<a href="ivyroom.html">Ivy Room</a>
-				<a href="freeFood.html" style="float:right">Free Food</a>
-				<a href="campusMenu.html">Home</a>
+				<a href="jos.html">Jo's</a>
+				<a href="blueroom.html">Blue Room</a>
+				<a href="andrews.html">Andrews</a>
+				<a id="free-food" href="#" >Free Food</a>
+				<a href="campusMenu.html">Home</a
 			</nav>
 		</section>
 
@@ -152,5 +153,17 @@
 
 			</section> 
 		</div>
+
+		<script>
+				window.onload = function() {
+					document.getElementById("free-food").onclick = function() {
+						var form = document.createElement("form");
+						form.action = "/free-food";
+						form.method = "POST";
+						form.submit();
+						return false;
+					}
+				}
+			</script>
 	</body>
 </html>
