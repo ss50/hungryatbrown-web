@@ -43,64 +43,30 @@ function getAllMenus()
     
 }
 
-//xmlDoc=loadXMLDoc("http://morningmail.brown.edu/xml.php?feed=all&days=7");
-
-
-// document.write(xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue + "<br>");
-// document.write(xmlDoc.getElementsByTagName("author")[0].childNodes[0].nodeValue + "<br>");
-// document.write(xmlDoc.getElementsByTagName("year")[0].childNodes[0].nodeValue);
-
 
 app.get('/', function(request, response){
     response.render('index.html', {});
 });
 
 app.get('/free-food', function(request, response){
-    response.render('freeFood.html', {})
-    // cmd = system("python __init__.py");
-    // cmd = shell.("python __init__.py");
-    // console.log('yay');
+    response.render('freeFood.html', {});
 });
 
-// var PythonShell = require('python-shell');
+app.get('/ratty-menu', function(request, response){
+    response.render('ratty.html', {});
+});
 
-// PythonShell.run('__init__.py', function (err) {
-//   if (err) throw err;
-//   console.log('finished');
-// });
+app.get('/vdub-menu', function(request, response){
+    response.render('vdub.html', {});
+});
+
+
 
 require('child_process')
     .exec('python __init__.py', function (err) {
       if (err) throw err;
       console.log('finished');
     })
-
-// var parseString = require('xml2js').parseString;
-
-
-// var options = {
-//   hostname: 'localhost',
-//   port: 5000,
-//   path: '/',
-//   method: 'GET',
-// };
-
-// var req = http.request(options, function(res) {
-//   console.log('STATUS: ' + res.statusCode);
-//   res.setEncoding('utf8');
-//   res.on('data', function (chunk) {
-
-//     console.log('BODY: ' + chunk);
-
-//     var xml = 
-//     parseString(xml, function (err, result) {
-//     console.log("result:"+result);
-//     //console.dir(result);
-//     console.log(util.inspect(result, false, null));
-// });
-//   });
-//});
-
 
 
 app.listen(process.env.PORT || 5000);

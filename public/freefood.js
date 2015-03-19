@@ -16,9 +16,14 @@ function getEvents(){
 
 function addEvents(data) {
 	addresses = data;
-	displayEvents(data);
-	console.log(data);
-	google.maps.event.addDomListener(window, 'load', initialize);
+	if (data.length == 0){
+		$("#no-free-food").show();
+	} else {
+		$("#no-free-food").hide();
+		displayEvents(data);
+		google.maps.event.addDomListener(window, 'load', initialize);
+	}
+	
 }
 
 function displayEvents(data){
