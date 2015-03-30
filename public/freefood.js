@@ -71,19 +71,18 @@ function initialize() {
 		
 		var bounds = new google.maps.LatLngBounds();
 		var geocoder = new google.maps.Geocoder();
-	  	var mapOptions = {
-	    	zoom: 14
-	  	};
-	  	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	  	
 
 	  // Try HTML5 geolocation
 	  
 	  	if(navigator.geolocation) {
+	  		
 	    	navigator.geolocation.getCurrentPosition(function(position) {
 	      	var pos = new google.maps.LatLng(position.coords.latitude,
 	                                       position.coords.longitude);
 
 	      	map.setCenter(pos);
+
 	    }, function() {
 	      handleNoGeolocation(true);
 	    });
@@ -91,7 +90,8 @@ function initialize() {
 	    // Browser doesn't support Geolocation
 	    handleNoGeolocation(false);
 	  }
-	
+	  
+		
 
 	for (var i = 0; i < addresses.length; i++){
 		var name = addresses[i]["summary"];
@@ -113,7 +113,14 @@ function initialize() {
 		});
 	}
 
-	map.fitBounds(bounds);
+	map = new google.maps.Map(document.getElementById('map-canvas'), {
+		zoom: 15,
+		center: bounds.getCenter()
+	});
+
+	//map.fitBounds(bounds);
+
+	console.log("Map zoom level: " + map.getZoom());
 }
 
 			
