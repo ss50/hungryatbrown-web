@@ -51,10 +51,12 @@ function displayEvents(data){
 		time.innerHTML = data[i]["start"]["time"];
 		place.innerHTML = data[i]["location"]["address"];
 		image.src = "images/marker.png";
+		calEvent = addToCalendar(data[i]);
 
 		content.appendChild(name);
 		content.appendChild(time);
 		content.appendChild(place);
+		content.appendChild(calEvent);
 
 		row.appendChild(image);
 		row.appendChild(content);
@@ -131,4 +133,34 @@ function initialize() {
 
 		var infowindow = new google.maps.InfoWindow(options);
 		map.setCenter(options.position)
+	}
+
+	function addToCalendar(data) {
+		console.log("Inside add to calendar");
+		anchor = document.createElement("a");
+		anchor.setAttribute("class", "addthisevent");
+		anchor.href = "CALSHOW://";
+		anchor.setAttribute("title", "Add To Calendar");
+		anchor.setAttribute("data-role", "none");
+		anchor.setAttribute("data-direct", "google");
+		anchor.setAttribute("style", "margin-right: 14%");
+
+		// start, end, summary
+		start = document.createElement("span");
+		end = document.createElement("span");
+		summary = document.createElement("span");
+
+		start.setAttribute("class", "_start");
+		end.setAttribute("class", "_end");
+		summary.setAttribute("class", "_summary");
+
+		start.innerHTML = data["start"]["time"];
+		end.innerHTML = data["end"]["time"];
+		summary.innerHTML = data["summary"];
+
+		anchor.appendChild(start);
+		anchor.appendChild(end);
+		anchor.appendChild(summary);
+
+		return anchor;
 	}
