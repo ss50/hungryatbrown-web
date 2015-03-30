@@ -52,6 +52,7 @@ function displayEvents(data){
 		place.innerHTML = data[i]["location"]["address"];
 		image.src = "images/marker.png";
 		calEvent = addToCalendar(data[i]);
+		console.log(data[i]);
 
 		content.appendChild(name);
 		content.appendChild(time);
@@ -154,8 +155,8 @@ function initialize() {
 		end.setAttribute("class", "_end");
 		summary.setAttribute("class", "_summary");
 
-		start.innerHTML = data["start"]["time"];
-		end.innerHTML = data["end"]["time"];
+		start.innerHTML = data["start"]["shortdate"] + " " + data["start"]["time"];
+		end.innerHTML = data["end"]["shortdate"] + " " + data["end"]["time"];
 		summary.innerHTML = data["summary"];
 
 		anchor.appendChild(start);
