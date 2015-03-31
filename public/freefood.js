@@ -71,6 +71,10 @@ function initialize() {
 		
 		var bounds = new google.maps.LatLngBounds();
 		var geocoder = new google.maps.Geocoder();
+		map = new google.maps.Map(document.getElementById('map-canvas'), {
+			zoom: 15,
+			center: bounds.getCenter()
+		});
 	  	
 
 	  // Try HTML5 geolocation
@@ -91,32 +95,32 @@ function initialize() {
 	    handleNoGeolocation(false);
 	  }
 	  
-		
+	var count = 1	
 
 	for (var i = 0; i < addresses.length; i++){
 		var name = addresses[i]["summary"];
+		console.log(name);
 		geocoder.geocode( {'address': addresses[i]["mappableLocation"]}, function(results, status){
 			if (status == google.maps.GeocoderStatus.OK){
 				console.log("Able to geocode location");
 				var location = new google.maps.LatLng(results[0].geometry.location.k, results[0].geometry.location.D);
-				
+				console.log(count);
 				var marker = new google.maps.Marker({
 					position: location,
 					map: map,
-					title: name
+					icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + count + '|FF0000|000000'
 				});
-
 				bounds.extend(location);
 			} else {
 				console.log("Cannot drop pins: invalid location");
 			}
+			count++;
 		});
+
+		
 	}
 
-	map = new google.maps.Map(document.getElementById('map-canvas'), {
-		zoom: 15,
-		center: bounds.getCenter()
-	});
+	
 
 	//map.fitBounds(bounds);
 
