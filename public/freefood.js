@@ -36,6 +36,7 @@ function displayEvents(data){
 		var name = document.createElement("h3");
 		var time = document.createElement("h3");
 		var place = document.createElement("h5");
+		var desc = document.createElement("p");
 		var divider = document.createElement("hr");
 		var image = document.createElement("img");
 
@@ -46,10 +47,12 @@ function displayEvents(data){
 		place.setAttribute("class", "event-place");
 		divider.setAttribute("id", "events-subdivider");
 		image.setAttribute("class", "marker-image");
+		desc.setAttribute("class", "event-desc")
 
 		name.innerHTML = data[i]["summary"];
 		time.innerHTML = data[i]["start"]["time"];
 		place.innerHTML = data[i]["location"]["address"];
+		desc.innerHTML = data[i]["description"];
 		image.src = "images/marker.png";
 		calEvent = addToCalendar(data[i]);
 		console.log(data[i]);
@@ -57,6 +60,7 @@ function displayEvents(data){
 		content.appendChild(name);
 		content.appendChild(time);
 		content.appendChild(place);
+		content.appendChild(desc);
 		content.appendChild(calEvent);
 
 		row.appendChild(image);
